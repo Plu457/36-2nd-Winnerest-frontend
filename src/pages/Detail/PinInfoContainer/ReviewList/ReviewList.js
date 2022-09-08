@@ -93,6 +93,8 @@ const ReviewList = ({ reviewCount }) => {
     textRef.current.style.height = defaultHeight;
     textRef.current.style.height = textRef.current.scrollHeight + 'px';
   };
+
+  //* 글자를 1개만 쓰면 state에 저장되는데 그 과정에서 렌더링이 한 번더 일어나게 되므로 그냥 e.target.value의 길이가 0 보다 크면 "확인" 버튼이 활성화 되게하는게 좋아 보인다.
   const reviewInputChange = e => {
     handleResizeHeight('40px');
     e.target.value.length <= 1 &&

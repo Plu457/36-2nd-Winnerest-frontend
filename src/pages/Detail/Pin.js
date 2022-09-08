@@ -19,6 +19,9 @@ const Pin = () => {
         },
       });
       const { data } = res;
+      //* 이 공간 안에서 data라는 변수의 데이터를 변경시키고 변경된 데이터를 pinData에 옮겨도 될거 같다.
+      //* 필요없는 state 값을 이용해서 코드가 복잡해진거 같다.
+      //* PinInfoContainer 컴포넌트에 보내는 state 값이 {...pinData} 만으로도 가능할 거 같다.
       if (data.tagIds.length > 1) {
         setTagId(data.tagIds.slice(0, 1).join());
       } else {

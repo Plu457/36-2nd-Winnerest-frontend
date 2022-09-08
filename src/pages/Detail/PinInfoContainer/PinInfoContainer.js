@@ -50,11 +50,15 @@ const PinInfoContainer = ({
     setIsActive(active);
   };
 
+  //* 핀 수정 모달에서도 사용하므로 util 폴더를 생성한 뒤 관리를 해주면 좋을 거 같다.
+  //* (defaultHeight, ref값)
   const handleResizeHeight = defaultHeight => {
     textRef.current.style.height = defaultHeight;
     textRef.current.style.height = textRef.current.scrollHeight + 'px';
   };
 
+  //* useRef를 이용해서 한번에 데이터를 저장하고 보내는 형식으로 바꾸는게 좋을 거 같다.
+  //* state 값이 변경되면서 렌더링이 발생된다.
   const handleChangeInfo = ({ target }) => {
     handleResizeHeight('48px');
     setChangeInfo({
